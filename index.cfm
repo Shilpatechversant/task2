@@ -1,3 +1,4 @@
+<cfparam name='Message' default="value">
 <html>
     <head>
         <link rel="stylesheet" href="css/style.css">
@@ -8,33 +9,12 @@
             <div class="main_container">
                 <div class="forms card">
                     <h3>Task 2 </h3>
-                    <hr>
-                    <cfparam name='Message' default="value">
+                    <hr>              
                         <cfoutput>
                             <cfif structKeyExists(url, "Message" )>
-                             <div class="alert alert-success col-lg-6 offset-lg-3" role="alert">
-                                <cfif url.Message eq 1>                                   
-                                    ok                                   
-                                </cfif>
-                                <cfif url.Message eq 2>                               
-                                    ok                                
-                                </cfif>
-                                <cfif url.Message eq 3>                                 
-                                        fair                                    
-                                </cfif>
-                                <cfif url.Message eq 4>                                 
-                                        Good                                
-                                </cfif>
-                                <cfif url.Message eq 5>                                    
-                                        Very Good                               
-                                </cfif>
-                                <cfif url.Message eq 6>                                   
-                                        Fair                               
-                                </cfif>
-                                <cfif url.Message eq "Invalid">                               
-                                    Invalid Input                                   
-                                </cfif>
-                            </div>
+                                <div class="alert alert-success col-lg-6 offset-lg-3" role="alert">
+                                    <cfoutput>#url.Message# </cfoutput>    
+                                </div>
                             </cfif>
                         </cfoutput>
                         <form action="components/task1.cfc?method=display_message" method="post">

@@ -1,21 +1,23 @@
 <cffunction  name="display_message" hint="Show text based on number" access="remote">
     <cfset local.tes_num=arguments.test_num>
+    <cfset local.status="">
     <cfswitch expression="#arguments.test_num#">
         <cfcase value="1">
-        <cflocation url="../index.cfm?Message=1">
+            <cfset local.status="OK">   
         </cfcase>
         <cfcase value="2">
-        <cflocation url="../index.cfm?Message=2">
+            <cfset local.status="OK">
         </cfcase>
         <cfcase value="3">
-        <cflocation url="../index.cfm?Message=3">
+            <cfset local.status="Good"> 
         </cfcase>
         <cfcase value="4">
-        <cflocation url="../index.cfm?Message=4">
+            <cfset local.status="Fair"> 
         </cfcase>
         <cfcase value="5">
-        <cflocation url="../index.cfm?Message=5">
+            <cfset local.status="Fair"> 
         </cfcase>
-        <cfdefaultcase><cflocation url="../index.cfm?Message=Invalid"></cfdefaultcase> 
+        <cfdefaultcase> <cfset local.status="Error"></cfdefaultcase>        
     </cfswitch>
+         <cflocation url="../index.cfm?Message=#status#">
 </cffunction>
